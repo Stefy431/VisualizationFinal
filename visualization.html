@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <h2>whats the most popular video game genre?</h2>
+    <svg width="500" height="400"></svg> <!--Step 2-->
+    <script>
+        
+        // Step 3
+        var svg = d3.select("svg"),
+            width = svg.attr("width"),
+            height = svg.attr("height"),
+            radius = 200;
+
+        // Step 1        
+        var data = [{name: "Sports", slice: 14.05}, 
+                    {name: "Platform", slice: 5.31},
+                    {name: "Racing", slice: 7.47},
+                    {name: "Role-Playing", slice: 8.97},
+                    {name: "Puzzle", slice: 3.47},
+                    {name: "Misc", slice: 10.35},
+                    {name: "Shooter", slice:7.91},
+                    {name: "Simulation", slice:5.23},
+                    {name: "Action", slice:20.16},
+                    {name: "Fighting", slice: 5.08},
+                    {name: "Adventure", slice: 7.79}, 
+                    {name: "Strategyy", slice:4.09}];
+        
+        var g = svg.append("g")
+                   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        // Step 4
+        var ordScale = d3.scaleOrdinal()
+                        	.domain(data)
+                        	.range(['#ffd384','#94ebcd','#fbaccc','#d3e0ea','#fa7f72', '#29302b', '#41b061', '#081da6', '#6ec472','#ffb7ab','#bf321b','#7c238c']);
+
+        // Step 5
+        var pie = d3.pie().value(function(d) { 
+                return d.slice; 
+            });
+
+        var arc = g.selectAll("arc")
+                   .data(pie(data))
+                   .enter();
+
+        // Step 6
+        var path = d3.arc()
+                     .outerRadius(radius)
+                     .innerRadius(0);
+
+        arc.append("path")
+           .attr("d", path)
+           .attr("fill", function(d) { return ordScale(d.data.name); });
+
+        // Step 7
+        var label = d3.arc()
+                      .outerRadius(radius)
+                      .innerRadius(0);
+            
+        arc.append("text")
+           .attr("transform", function(d) { 
+                    return "translate(" + label.centroid(d) + ")"; 
+            })
+           .text(function(d) { return d.data.name; })
+           .style("font-family", "arial")
+           .style("font-size", 9);
+            
+
+            
+    </script>
+</body>
+</html>
