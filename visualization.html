@@ -10,13 +10,13 @@
     <svg width="500" height="400"></svg> <!--Step 2-->
     <script>
         
-        // Step 3
+    
         var svg = d3.select("svg"),
             width = svg.attr("width"),
             height = svg.attr("height"),
-            radius = 200;
+            radius = 195;
 
-        // Step 1        
+             
         var data = [{name: "Sports", slice: 14.05}, 
                     {name: "Platform", slice: 5.31},
                     {name: "Racing", slice: 7.47},
@@ -33,12 +33,12 @@
         var g = svg.append("g")
                    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-        // Step 4
+    
         var ordScale = d3.scaleOrdinal()
                         	.domain(data)
-                        	.range(['#ffd384','#94ebcd','#fbaccc','#d3e0ea','#fa7f72', '#29302b', '#41b061', '#081da6', '#6ec472','#ffb7ab','#bf321b','#7c238c']);
+                        	.range(['#5294ff','#ffab52','#40ff76','#ff1900','#ff2bed', '#29302b', '#41b061', '#081da6', '#fff769','#4d4d4d','#bf321b','#7c238c']);
 
-        // Step 5
+       
         var pie = d3.pie().value(function(d) { 
                 return d.slice; 
             });
@@ -47,7 +47,7 @@
                    .data(pie(data))
                    .enter();
 
-        // Step 6
+        
         var path = d3.arc()
                      .outerRadius(radius)
                      .innerRadius(0);
@@ -56,7 +56,7 @@
            .attr("d", path)
            .attr("fill", function(d) { return ordScale(d.data.name); });
 
-        // Step 7
+    
         var label = d3.arc()
                       .outerRadius(radius)
                       .innerRadius(0);
@@ -75,23 +75,23 @@
         }
 
         function draw() {
-            fill("#ffd384")
+            fill("#5294ff")
             rect(10, 10, 10, 10)
             text("Strategy", 25, 19)
 
-            fill("#94ebcd")
+            fill("#ffab52")
             rect(75, 10, 10, 10)
             text("Sports", 90, 19)
 
-            fill("#fbaccc")
+            fill("#40ff76")
             rect(150, 10, 10, 10)
             text("Platform", 165, 19)
 
-            fill("#d3e0ea")
+            fill("#ff1900")
             rect(240, 10, 10, 10)
             text("Racing", 257, 19)
 
-            fill("#fa7f72")
+            fill("#ff2bed")
             rect(320, 10, 10, 10)
             text("Role-Playing", 335, 19)
 
@@ -110,11 +110,11 @@
             rect(75, 50, 10, 10)
             text("Shooter", 90, 59)
 
-            fill("#6ec472")
+            fill("#fff769")
             rect(150, 50, 10, 10)
             text("Simulation", 165, 59)
 
-            fill("#ffb7ab")
+            fill("#4d4d4d")
             rect(240, 50, 10, 10)
             text("Action", 257, 59)
 
