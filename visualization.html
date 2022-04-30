@@ -60,15 +60,15 @@
         var label = d3.arc()
                       .outerRadius(radius)
                       .innerRadius(0);
-            
-        /*arc.append("text")
+        /*    
+        arc.append("text")
            .attr("transform", function(d) { 
                     return "translate(" + label.centroid(d) + ")"; 
             })
            .text(function(d) { return d.data.name; })
            .style("font-family", "arial")
            .style("font-size", 7)
-           .style("color: white"); */
+           .style("color: white");  */
 
         function setup() {
             createCanvas(500, 500)
@@ -77,17 +77,54 @@
         function draw() {
             fill("#ffd384")
             rect(10, 10, 10, 10)
-            text("Sports", 25, 19)
+            text("Strategy", 25, 19)
 
             fill("#94ebcd")
-            rect(70, 10, 10, 10)
-            text("Platform", 90, 19)
+            rect(75, 10, 10, 10)
+            text("Sports", 90, 19)
 
             fill("#fbaccc")
             rect(150, 10, 10, 10)
-            text("Racing", 165, 19)
+            text("Platform", 165, 19)
 
-            
+            fill("#d3e0ea")
+            rect(240, 10, 10, 10)
+            text("Racing", 257, 19)
+
+            fill("#fa7f72")
+            rect(320, 10, 10, 10)
+            text("Role-Playing", 335, 19)
+
+            fill("#29302b")
+            rect(410, 10, 10, 10)
+            text("Puzzle", 422, 19)
+
+
+            //2nd row 
+
+            fill("#41b061")
+            rect(10, 50, 10, 10)
+            text("Misc", 26, 59)
+
+            fill("#081da6")
+            rect(75, 50, 10, 10)
+            text("Shooter", 90, 59)
+
+            fill("#6ec472")
+            rect(150, 50, 10, 10)
+            text("Simulation", 165, 59)
+
+            fill("#ffb7ab")
+            rect(240, 50, 10, 10)
+            text("Action", 257, 59)
+
+            fill("#bf321b")
+            rect(320, 50, 10, 10)
+            text("Fighting", 335, 59)
+
+            fill("#7c238c")
+            rect(410, 50, 10, 10)
+            text("Adventure", 422, 59)
         }
             
             
